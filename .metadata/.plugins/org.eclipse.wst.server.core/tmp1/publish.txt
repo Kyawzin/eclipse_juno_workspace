@@ -1,0 +1,4 @@
+#GlassFish 3
+#Mon Dec 10 15:34:04 IST 2012
+org.eclipse.jst.jee.server\:test_dyn_web_project=C\:\\Programs\\glassfish-3.1.2.2\\glassfish\\domains\\domain1\\eclipseApps\\test_dyn_web_project
+org.eclipse.jst.jee.server\:login=C\:\\Programs\\glassfish-3.1.2.2\\glassfish\\domains\\domain1\\eclipseApps\\login
