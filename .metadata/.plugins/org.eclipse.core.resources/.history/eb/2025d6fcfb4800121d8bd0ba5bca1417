@@ -1,0 +1,64 @@
+package com.tanzeelkazi.core;
+
+public class SendMail {
+    
+    private boolean _addressValidationRequired = true;
+    
+    private String[] _recipients = new String[0];
+    private String _from = null;
+    private String _subject = null;
+    private String _body = null;
+    
+    
+    public boolean isAddressValidationRequired() {
+        return this._addressValidationRequired;
+    }
+    
+    public String[] getRecipients() {
+        return this._recipients;
+    }
+    
+    public String getFrom() {
+        return this._from;
+    }
+    
+    public String getSubject() {
+        return this._subject;
+    }
+    
+    public void setSubject(String value) {
+        this._subject = value;
+        return;
+    }
+    
+    public void setBody(String value) {
+        this._body = value;
+        return;
+    }
+    
+    public String getBody() {
+        return this._body;
+    }
+    
+    public SendMail() {
+        return;
+    }
+    
+    public SendMail(String from, String recipients, String subject, String body) throws Exception {
+        throw new Exception(String.valueOf(Error.Type.NOT_IMPLEMENTED.value()));
+        //return;
+    }
+    
+    public boolean isMandatoryDataFilled() {
+        boolean mandatoryDataFilled = false;
+        return mandatoryDataFilled;
+    }
+    
+    public Error send() {
+        Error oError = new Error(Error.Type.NOT_IMPLEMENTED);
+        
+        //Error _oError = this.isMandatoryDataFilled();
+        
+        return oError;
+    }
+}

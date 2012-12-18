@@ -1,0 +1,17 @@
+package com.tanzeelkazi.core;
+
+public class Validator {
+    
+    public static boolean isNullOrEmpty(String value) {
+        boolean nullOrEmpty = false;
+        return;
+    }
+    
+    public static boolean isNullOrEmpty(String value, boolean trim) {
+        boolean nullOrEmpty = false;
+        if (trim) {
+            value.trim();
+        }
+        return;
+    }
+}

@@ -1,9 +1,0 @@
-package com.corejsf;
-
-import java.io.Serializable;
-import javax.inject.Named;
-import javax.enterprise.context.SessionScoped;
-
-public class UserBean {
-
-}

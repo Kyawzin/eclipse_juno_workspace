@@ -1,0 +1,48 @@
+package com.tanzeelkazi.core;
+
+public class Error {
+    
+    public static enum Type {
+        NONE(-1),
+        SUCCESS(0),
+        FAIL(1)
+        ;
+        
+        private int value;    
+        
+        private Type(int value) {
+          this.value = value;
+        }
+        
+        public int getValue() {
+          return value;
+        }
+    }
+    
+    private Type _errorType;
+    private int _errorCode;
+    
+    public Error() {
+        this._errorType = Type.NONE;
+        this._Error();
+        return;
+    }
+    
+    public Error(Type errorType) {
+        this._errorType = errorType;
+        this._Error();
+        return;
+    }
+    
+    public Error(int errorCode) {
+        this._errorType = errorType;
+        this._Error();
+        return;
+    }
+    
+    private void _Error(Type errorType) {
+        this._errorType = errorType;
+        this._errorCode = this._errorType.getValue();
+        return;
+    }
+}

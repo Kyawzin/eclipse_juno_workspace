@@ -10,6 +10,15 @@
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>index.faces</welcome-file>
   </welcome-file-list>
+  
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  
+  <listener>
+    <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+  </listener>
+  
   <servlet>
     <servlet-name>Faces Servlet</servlet-name>
     <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
@@ -17,6 +26,9 @@
   </servlet>
   <servlet-mapping>
     <servlet-name>Faces Servlet</servlet-name>
-    <url-pattern>/*.faces</url-pattern>
+    <url-pattern>*.faces</url-pattern>
   </servlet-mapping>
+  
+
+  
 </web-app>
