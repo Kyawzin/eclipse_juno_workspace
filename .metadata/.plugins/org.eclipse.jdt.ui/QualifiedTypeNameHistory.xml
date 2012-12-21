@@ -5,7 +5,10 @@
 <fullyQualifiedTypeName name="javax.enterprise.context.SessionScoped"/>
 <fullyQualifiedTypeName name="java.util.TreeMap"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
-<fullyQualifiedTypeName name="java.util.Properties"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Properties"/>
+<fullyQualifiedTypeName name="java.util.Enumeration"/>
+<fullyQualifiedTypeName name="com.tanzeelkazi.core.Error"/>
 <fullyQualifiedTypeName name="com.tanzeelkazi.core.Error.Type"/>
+<fullyQualifiedTypeName name="com.tanzeelkazi.core.error.ErrorType"/>
 </qualifiedTypeNameHistroy>

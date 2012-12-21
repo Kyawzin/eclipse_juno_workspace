@@ -1,0 +1,5 @@
+package com.tanzeelkazi.core.error;
+
+public class ErrorType {
+    
+}

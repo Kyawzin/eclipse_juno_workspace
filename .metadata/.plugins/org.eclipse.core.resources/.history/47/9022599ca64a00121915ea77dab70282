@@ -1,0 +1,34 @@
+package com.tanzeelkazi.core.error;
+
+public class ErrorType {
+    
+    //private static
+    
+    public static final ErrorType NONE = setValue(-1);
+    public static final ErrorType SUCCESS = setValue(0);
+    public static final ErrorType FAIL = setValue(1);
+    public static final ErrorType NOT_IMPLEMENTED = setValue(2);
+    
+    // error codes for use in conjunction with Validator's functions
+    //NULL_OR_EMPTY = setValue(101);
+    //NOT_NULL_OR_EMPTY = setValue(102);
+    
+    //VALID_EMAIL = setValue(103);
+    //INVALID_EMAIL = setValue(104);
+    
+    //VALID_PORT = setValue(105);
+    //INVALID_PORT = setValue(106);
+    
+    private static ErrorType setValue(int iErrorCode) {
+        return new ErrorType(iErrorCode);
+    }
+    
+    
+    private int _value;
+    
+    public ErrorType(int iErrorCode) {
+        _value = iErrorCode;
+        return;
+    }
+    
+}

@@ -1,0 +1,17 @@
+package com.tanzeelkazi.core.mail;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+public class Error extends com.tanzeelkazi.core.Error {
+    public static enum Type {
+        ;
+        
+        static {
+            for(int i=0;i<values().length;i++)
+            {
+                valueMap.put(values()[i].value, values()[i]);
+            }
+        }
+    }
+}

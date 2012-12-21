@@ -1,0 +1,27 @@
+package com.tanzeelkazi.core.error;
+
+public class ErrorType {
+    
+    //private static
+    
+    public static final ErrorType NONE;
+    //SUCCESS(0),
+    //FAIL(1),
+    //NOT_IMPLEMENTED(2),
+    
+    // error codes for use in conjunction with Validator's functions
+    //NULL_OR_EMPTY(101),
+    //NOT_NULL_OR_EMPTY(102),
+    
+    //VALID_EMAIL(103),
+    //INVALID_EMAIL(104),
+    
+    //VALID_PORT(105),
+    //INVALID_PORT(106),
+    
+    
+    static {
+        // do something
+    }
+    
+}

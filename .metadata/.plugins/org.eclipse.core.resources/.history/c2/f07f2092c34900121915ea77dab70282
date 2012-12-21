@@ -1,0 +1,165 @@
+package com.tanzeelkazi.core.mail;
+
+import java.util.ArrayList;
+import java.util.Properties;
+
+import com.tanzeelkazi.core.Error;
+import com.tanzeelkazi.core.Validator;
+import com.tanzeelkazi.core.Error.Type;
+
+
+// http://javamail.kenai.com/nonav/javadocs/index.html
+
+public class SimpleMail {
+    
+    private boolean _addressValidationRequired = true;
+    
+    private Properties _mailProperties = null;
+    
+    private ArrayList<String> _recipients = null;
+    private String _from = null;
+    private String _subject = null;
+    private String _body = null;
+    
+    
+    private void _SimpleMail() {
+        this._mailProperties = new Properties();
+        this._recipients = new ArrayList<String>();
+        return;
+    }
+    
+    public SimpleMail() {
+        this._SimpleMail();
+        return;
+    }
+    
+    public SimpleMail(String from, String recipients, String subject, String body) throws Exception {
+        this._SimpleMail();
+        throw new Exception(String.valueOf(Error.Type.NOT_IMPLEMENTED.value()));
+        //return;
+    }
+    
+    
+    public boolean isAddressValidationRequired() {
+        return this._addressValidationRequired;
+    }
+    
+    public ArrayList<String> getRecipients() {
+        return this._recipients;
+    }
+    
+    public Error addRecipient(String value) {
+        Error oError = new Error(Error.Type.SUCCESS);
+        
+        if (Validator.isNullOrEmpty(value)) {
+            oError.setErrorType(Error.Type.NULL_OR_EMPTY);
+            return oError;
+        }
+        
+        if (this.isAddressValidationRequired()) {
+            if (!Validator.isValidEmail(value)) {
+                oError.setErrorType(Error.Type.INVALID_EMAIL);
+                return oError;
+            }
+        }
+        
+        this.getRecipients().add(value);
+        
+        return oError;
+    }
+    
+    public Error removeRecipient(String value) {
+        Error oError = new Error(Error.Type.FAIL);
+        if (this.getRecipients().remove(value)) {
+            oError.setErrorType(Error.Type.SUCCESS);
+        }
+        return oError;
+    }
+    
+    public String getFrom() {
+        return this._from;
+    }
+    
+    public Error setFrom(String value) {
+        Error oError = new Error(Error.Type.SUCCESS);
+        
+        if (Validator.isNullOrEmpty(value)) {
+            oError.setErrorType(Error.Type.NULL_OR_EMPTY);
+            return oError;
+        }
+        
+        if (this.isAddressValidationRequired()) {
+            if (!Validator.isValidEmail(value)) {
+                oError.setErrorType(Error.Type.INVALID_EMAIL);
+                return oError;
+            }
+        }
+        
+        this._from = value;
+        return oError;
+    }
+    
+    public String getSubject() {
+        return this._subject;
+    }
+    
+    public Error setSubject(String value) {
+        Error oError = new Error(Error.Type.SUCCESS);
+        
+        if (Validator.isNullOrEmpty(value)) {
+            oError.setErrorType(Error.Type.NULL_OR_EMPTY);
+            return oError;
+        }
+        
+        this._subject = value;
+        return oError;
+    }
+    
+    public String getBody() {
+        return this._body;
+    }
+    
+    public Error setBody(String value) {
+        Error oError = new Error(Error.Type.SUCCESS);
+        
+        if (Validator.isNullOrEmpty(value)) {
+            oError.setErrorType(Error.Type.NULL_OR_EMPTY);
+            return oError;
+        }
+        
+        this._body = value;
+        return oError;
+    }
+    
+
+    
+    
+    public boolean isMandatoryDataFilled() {
+        boolean mandatoryDataFilled = true;
+        if (Validator.isNullOrEmpty(this.getFrom())
+                || this.getRecipients().size() == 0
+                || Validator.isNullOrEmpty(this.getSubject())
+                || Validator.isNullOrEmpty(this.getBody())
+                ) {
+            mandatoryDataFilled = false;
+        }
+        
+        return mandatoryDataFilled;
+    }
+    
+    public Error prepare() {
+        Error oError = new Error(Error.Type.NOT_IMPLEMENTED);
+        return oError;
+    }
+    
+    public Error send() {
+        Error oError = new Error(Error.Type.NOT_IMPLEMENTED);
+        
+        if (!this.isMandatoryDataFilled()) {
+            oError.setErrorType(Error.Type.FAIL);
+            return oError;
+        }
+        
+        return oError;
+    }
+}

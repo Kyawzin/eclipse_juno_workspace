@@ -1,0 +1,95 @@
+package com.tanzeelkazi.core;
+
+import java.util.Properties;
+
+public class Validator {
+    
+    private static Properties _defaults = null;
+    public static Properties _options = null;
+    
+    static {
+        
+        _defaults = new Properties();
+        
+        _defaults.put("String.NullOrEmptyTrim", true);
+        
+        _defaults.put("Email.Regex", "");
+        
+        
+        _options = new Properties();
+        
+        _options.put("String.NullOrEmptyTrim", true);
+        
+        _options.put("Email.Regex", (String)_defaults.get("Email.Regex"));
+        
+        
+        
+    }
+    
+    public static boolean isNull(Object value) {
+        return (value == null);
+    }
+    
+    public static boolean getNullEmptyTrimByDefault() {
+        return (boolean) _defaults.get("String.NullOrEmptyTrim");
+    }
+    
+    public static void setNullEmptyTrimByDefault(boolean value) {
+        _defaults.put("String.NullOrEmptyTrim", value);
+        return;
+    }
+    
+    public static boolean isNullOrEmpty(String value) {
+        return isNullOrEmpty(value, getNullEmptyTrimByDefault());
+    }
+    
+    public static boolean isNullOrEmpty(String value, boolean trim) {
+        boolean nullOrEmpty = true;
+        
+        if (isNull(value)) {
+            return nullOrEmpty;
+        }
+        
+        if (trim) {
+            value = value.trim();
+        }
+        
+        if (value.length() == 0) {
+            return nullOrEmpty;
+        }
+        
+        nullOrEmpty = false;
+        return nullOrEmpty;
+    }
+    
+    
+    
+    public static String getDefaultEmailRegex() {
+        return (String) _defaults.get("Email.Regex");
+    }
+    
+    public static void setDefaultEmailRegex(String value) {
+        _defaults.put("Email.Regex", value);
+        return;
+    }
+    
+    public static boolean isValidEmail(String value) {
+        return isValidEmail(value, getDefaultEmailRegex());
+    }
+    
+    public static boolean isValidEmail(String value, String regex) {
+        boolean validEmail = false;
+        
+        if (isNullOrEmpty(value)) {
+            return validEmail;
+        }
+        
+        if (value.matches(regex)) {
+            validEmail = true;
+        }
+        
+        return validEmail;
+    }
+    
+    
+}
